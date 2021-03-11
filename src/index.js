@@ -1,10 +1,21 @@
 import "./styles.css";
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+const onClickAdd = () => {
+  //テキストボックス初期化
+  const inputText = document.getElementById("add-text").value;
+  document.getElementById("add-text").value = "";
+
+  const div = document.createElement("div");
+  div.className = "list-row";
+
+  const li = document.createElement("li");
+  li.innerText = inputText;
+
+  div.appendChild(li);
+  //console.log(li);
+  document.getElementById("incomplate-list").appendChild(div);
+};
+
+document
+  .getElementById("add-button")
+  .addEventListener("click", () => onClickAdd());
